@@ -1,7 +1,7 @@
 import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 import { AuthUser } from '../types';
 
-const API_URL = "http://localhost:5000/api";
+const API_URL = "https://team-task-manager-production-9f90.up.railway.app/api";
 
 interface AuthContextType {
   user: AuthUser | null;
