@@ -38,7 +38,6 @@ export const ProjectModal = ({ onClose, onSave }: ProjectModalProps) => {
         addedAt: new Date().toISOString(),
       };
 
-      // 🔥 BACKEND CALL (instead of saveProject)
       await API.post("/projects", {
         name: name.trim(),
         description: description.trim(),

@@ -29,8 +29,6 @@ export const createTask = async (req, res) => {
       status,
       dueDate
     } = req.body;
-
-    // 🔥 VALIDATION (VERY IMPORTANT)
     if (!title || !projectId) {
       return res.status(400).json({ message: "Title and ProjectId are required" });
     }
@@ -46,7 +44,7 @@ export const createTask = async (req, res) => {
       createdBy: req.user.id
     });
 
-    res.status(201).json(format(task)); // ✅ FIXED
+    res.status(201).json(format(task)); 
   } catch (err) {
     res.status(500).json({ message: err.message });
   }

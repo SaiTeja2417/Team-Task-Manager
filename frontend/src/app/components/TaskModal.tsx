@@ -37,7 +37,6 @@ export const TaskModal = ({ projects, defaultProjectId, editingTask, onClose, on
     }
   }, [editingTask]);
 
-  // 🔥 Fetch users from backend instead of localStorage
   useEffect(() => {
     const fetchUsers = async () => {
       try {
@@ -85,7 +84,6 @@ export const TaskModal = ({ projects, defaultProjectId, editingTask, onClose, on
       setLoading(true);
 
       if (editingTask) {
-        // 🔥 UPDATE TASK
         await API.put(`/tasks/${editingTask.id}`, {
           projectId,
           title: title.trim(),
@@ -96,7 +94,6 @@ export const TaskModal = ({ projects, defaultProjectId, editingTask, onClose, on
           dueDate: dueDate || null,
         });
       } else {
-        // 🔥 CREATE TASK
         await API.post("/tasks", {
           projectId,
           title: title.trim(),

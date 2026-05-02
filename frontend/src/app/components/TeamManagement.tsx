@@ -20,7 +20,7 @@ export const TeamManagement = ({ project, userRole, onUpdate }: TeamManagementPr
 
   const loadUsers = async () => {
     try {
-      const res = await API.get("/users"); // ✅ backend endpoint
+      const res = await API.get("/users");
       setAllUsers(res.data);
     } catch (err) {
       console.error(err);

@@ -21,7 +21,6 @@ export const Dashboard = () => {
     if (user) loadData();
   }, [user]);
 
-  // ✅ BACKEND INTEGRATION FIXED
   const loadData = async () => {
     try {
       const [projectsRes, tasksRes] = await Promise.all([
@@ -29,7 +28,6 @@ export const Dashboard = () => {
         API.get("/tasks")
       ]);
 
-      // ✅ Ensure correct data format
       setProjects(projectsRes.data || []);
       setAllTasks(tasksRes.data || []);
     } catch (error) {
@@ -37,7 +35,6 @@ export const Dashboard = () => {
     }
   };
 
-  // ✅ ROLE LOGIC SAFE
   const getUserRole = (project: Project): UserRole => {
     if (!user) return 'member';
 
@@ -47,7 +44,6 @@ export const Dashboard = () => {
     return member?.role || 'member';
   };
 
-  // ✅ SAFE FILTERING
   const myTasks = allTasks.filter(t => t.assignedTo === user?.id);
 
   const overdueTasks = myTasks.filter(t =>

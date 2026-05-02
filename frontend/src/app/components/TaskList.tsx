@@ -18,7 +18,6 @@ export const TaskList = ({ tasks, projects, onCreateTask, onRefresh }: TaskListP
   const [searchQuery, setSearchQuery] = useState('');
   const [users, setUsers] = useState<User[]>([]);
 
-  // ✅ FETCH USERS FROM BACKEND
   useEffect(() => {
     const fetchUsers = async () => {
       try {
